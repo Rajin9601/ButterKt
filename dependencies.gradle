@@ -1,0 +1,66 @@
+// junit5 변수는 android-junit5 plugin 이 만들어 낸다.
+
+def versions = [
+        kotlin : "1.2.50",
+        mockito: "2.19.0",
+]
+
+def build = [
+        compileSdkVersion: 28,
+        targetSdkVersion : 28,
+        minSdkVersion    : 21,
+        gradlePlugins    : [
+                android: "com.android.tools.build:gradle:3.2.0-beta01",
+                kotlin : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
+        ],
+        ktlint           : "com.github.shyiko:ktlint:0.24.0",
+]
+
+def plugin = [
+        android: [
+                app    : "com.android.application",
+                library: "com.android.library",
+        ],
+        kotlin : [
+                android         : "kotlin-android",
+                androidExtension: 'kotlin-android-extensions'
+        ],
+]
+
+def android = [
+        ktx             : "androidx.core:core-ktx:1.0.0-alpha3",
+        core            : "androidx.core:core:1.0.0-alpha3",
+        appCompat       : "androidx.appcompat:appcompat:1.0.0-alpha3",
+        material        : "com.google.android.material:material:1.0.0-alpha3",
+        annotations     : "androidx.annotation:annotation:1.0.0-alpha3",
+        recyclerView    : "androidx.recyclerview:recyclerview:1.0.0-alpha3",
+        constraintLayout: "androidx.constraintlayout:constraintlayout:1.1.2",
+        collection      : "androidx.collection:collection:1.0.0-alpha3",
+]
+
+def libs = [
+        kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
+]
+
+def test = [
+        junit        : "junit:junit:4.12",
+        mockito      : [
+                inline : "org.mockito:mockito-inline:${versions.mockito}",
+                android: "org.mockito:mockito-android:${versions.mockito}",
+        ],
+        mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1",
+        runner       : "androidx.test:runner:1.1.0-alpha3",
+        rules        : "androidx.test:rules:1.1.0-alpha3",
+        espresso     : [
+                core: "androidx.test.espresso:espresso-core:3.1.0-alpha3",
+        ],
+]
+
+ext.deps = [
+        "versions"   : versions,
+        "build"      : build,
+        "plugin"     : plugin,
+        "android"    : android,
+        "libs"       : libs,
+        "test"       : test,
+]

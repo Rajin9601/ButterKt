@@ -1,0 +1,13 @@
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api deps.libs.kotlin
+
+    api deps.android.ktx
+    api deps.android.core
+    api deps.android.appCompat
+    api deps.android.material
+    compileOnly deps.android.annotations
+    api deps.android.recyclerView
+    api deps.android.constraintLayout
+}

@@ -1,0 +1,29 @@
+buildscript {
+    dependencies {
+        classpath deps.build.gradlePlugins.android
+        classpath deps.build.gradlePlugins.kotlin
+    }
+}
+
+apply plugin: deps.plugin.android.library
+apply plugin: deps.plugin.kotlin.android
+
+android {
+    compileSdkVersion deps.build.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion deps.build.minSdkVersion
+        targetSdkVersion deps.build.targetSdkVersion
+        versionCode 1
+        versionName "0.1"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+}
+
+apply from: "dependencies.gradle"

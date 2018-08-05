@@ -1,0 +1,19 @@
+apply from: "dependencies.gradle"
+
+subprojects {
+    buildscript {
+        repositories {
+            google()
+            jcenter()
+        }
+    }
+
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
