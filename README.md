@@ -3,7 +3,7 @@
 ButterKt is a variation of KotterKnife. It is created to overcome some problems in KotterKnife which is
 
 * lazy binding is dangerous if same layout id is reused in multiple file.
-    * see lazy-binding-sample-app TODO: link to the readme page
+    * see [lazy-binding-sample-app](https://github.com/Rajin9601/ButterKt/tree/master/lazy-binding-sample-app)
 * Unbind call for Fragment
 
 For detail explanation, see TODO: link to blog.
