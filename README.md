@@ -11,7 +11,6 @@ For detail explanation, see TODO: link to blog.
 # Installation
 
 Currently, there is no way to add this library with dependencies. Since the core code is short, I recommend copy `ButterKt.kt` file into your source.
-Also, it uses
 
 # Actual Usage
 
