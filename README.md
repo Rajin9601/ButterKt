@@ -1,16 +1,16 @@
 # ButterKt
 
-ButterKt is a variation of KotterKnife. It is created to overcome some problems in KotterKnife which is
+ButterKt is an improved version of [KotterKnife](https://github.com/JakeWharton/kotterknife). It solves the following problems of KotterKnife:
 
-* lazy binding is dangerous if same layout id is reused in multiple file.
-    * see [lazy-binding-sample-app](https://github.com/Rajin9601/ButterKt/tree/master/lazy-binding-sample-app)
+* Lazy binding is dangerous if a layout ID is used in multiple files.
+    * See [lazy-binding-sample-app](https://github.com/Rajin9601/ButterKt/tree/master/lazy-binding-sample-app)
 * Unbind call for Fragment
 
-For detail explanation, see TODO: link to blog.
+For the detailed explanation, see TODO: link to blog.
 
 # Installation
 
-Currently, there is no way to add this library with dependencies. Since the core code is short, I recommend copy `ButterKt.kt` file into your source.
+Currently, ButterKt does not support installation as a dependency. As the code is short, I recommend you to copy `ButterKt.kt` into your source code.
 
 # Actual Usage
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-call `bindViews()` in `Activity#onCreate`, `View#onFinishInflate`, `Dialog#onCreate`, `RecyclerView.ViewHolder#init`
+Call `bindViews()` in `Activity#onCreate`, `View#onFinishInflate`, `Dialog#onCreate`, `RecyclerView.ViewHolder#init`
 
 
 ## DialogFragment, Fragment
@@ -50,7 +50,7 @@ class TestFragment : Fragment() {
 }
 ```
 
-call `bindViews(view)` in `Fragment#onCreateView`, and `unbindViews()` in `Framgent#onDestroyView`
+Call `bindViews(view)` in `Fragment#onCreateView`, and `unbindViews()` in `Framgent#onDestroyView`
 
 ## RecyclerView.ViewHolder
 
@@ -64,9 +64,9 @@ class TestViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 }
 ```
 
-call `bindViews()` in init block
+Call `bindViews()` in `init` block
 
-## custom viewHolder ButterViewHolder
+## `ButterViewHolder` (custom viewHolder)
 
 ```kotlin
 class TestViewHolder(val view: View) : ButterViewHolder {
@@ -82,7 +82,7 @@ class TestViewHolder(val view: View) : ButterViewHolder {
 }
 ```
 
-call `bindViews(view)` and `unbindViews()` when you think it's appropriate.
+Call `bindViews(view)` and `unbindViews()` if you think it's appropriate.
 
 # License
 
