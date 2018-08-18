@@ -6,7 +6,7 @@ ButterKt is an improved version of [KotterKnife](https://github.com/JakeWharton/
     * See [lazy-binding-sample-app](https://github.com/Rajin9601/ButterKt/tree/master/lazy-binding-sample-app)
 * Unbind call for Fragment
 
-For the detailed explanation, see TODO: link to blog.
+For the detailed explanation, see the following [article](https://www.rajin.me/dev/2018/08/05/ButterKt.html).
 
 # Installation
 
