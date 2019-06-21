@@ -290,16 +290,16 @@ object ButterKt {
         BindingCache.unbind(dialog)
     }
 
-    fun bind(fragment: DialogFragment) {
-        BindingCache.bind(fragment)
+    fun bind(fragment: DialogFragment, view: View) {
+        BindingCache.bind(fragment, view)
     }
 
     fun unbind(dialog: DialogFragment) {
         BindingCache.unbind(dialog)
     }
 
-    fun bind(fragment: Fragment) {
-        BindingCache.bind(fragment)
+    fun bind(fragment: Fragment, view: View) {
+        BindingCache.bind(fragment, view)
     }
 
     fun unbind(fragment: Fragment) {
@@ -314,8 +314,8 @@ object ButterKt {
         BindingCache.unbind(holder)
     }
 
-    fun bind(holder: ButterViewHolder) {
-        BindingCache.bind(holder)
+    fun bind(holder: ButterViewHolder, view: View) {
+        BindingCache.bind(holder, view)
     }
 
     fun unbind(holder: ButterViewHolder) {
