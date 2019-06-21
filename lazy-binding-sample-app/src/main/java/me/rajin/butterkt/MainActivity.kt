@@ -1,16 +1,13 @@
-package me.rajin.buttekt
+package me.rajin.butterkt
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.R.attr.layoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import me.rajin.butterkt.R
-import kotlinx.android.synthetic.main.activity_main.recyclerView
-import kotlinx.android.synthetic.main.activity_main.textView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.postDelayed({
             textView.setText(R.string.testing_str)
-            // this textView accesses to item view in recycler view.
+            // this textView accesses to item view in recyclerView.
         }, 1000)
     }
 }
