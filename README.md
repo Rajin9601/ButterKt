@@ -14,7 +14,7 @@ Currently, ButterKt does not support installation as a dependency. As the code i
 
 # Actual Usage
 
-## Activity, View, Dialog, RecyclerView.ViewHolder
+## Activity, View, Dialog
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
@@ -23,12 +23,12 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    bindViews()
+    ButterKt.bind(this)
   }
 }
 ```
 
-Call `bindViews()` in `Activity#onCreate`, `View#onFinishInflate`, `Dialog#onCreate`, `RecyclerView.ViewHolder#init`
+Call `ButterKt.bind(this)` in `Activity#onCreate`, `View#onFinishInflate`, `Dialog#onCreate`
 
 
 ## DialogFragment, Fragment
@@ -39,18 +39,18 @@ class TestFragment : Fragment() {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle?) {
     val view = inflater.inflate(R.layout.fragment_test, container, false)
-    bindViews(view)
+    ButterKt.bind(this, view)
     return view
   }
 
   override fun onDestroyView() {
     super.onDestroyView()
-    unbindViews()
+    ButterKt.unbind(this)
   }
 }
 ```
 
-Call `bindViews(view)` in `Fragment#onCreateView`, and `unbindViews()` in `Framgent#onDestroyView`
+Call `ButterKt.bind(this, view) in `Fragment#onCreateView`, and `ButterKt.unbind(this)` in `Framgent#onDestroyView`
 
 ## RecyclerView.ViewHolder
 
@@ -59,12 +59,12 @@ class TestViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
   private val title by bindView(R.id.item_title)
 
   init {
-    bindViews()
+    ButterKt.bind(this)
   }
 }
 ```
 
-Call `bindViews()` in `init` block
+Call `ButterKt.bind(this)` in `init` block
 
 ## `ButterViewHolder` (custom viewHolder)
 
@@ -73,16 +73,16 @@ class TestViewHolder(val view: View) : ButterViewHolder {
   private val title by bindView(R.id.item_title)
 
   fun someFunction1() {
-    bindViews(view)
+    ButterKt.bind(this, view)
   }
 
   fun someFunction2() {
-    unbindViews()
+    ButterKt.unbind(this)
   }
 }
 ```
 
-Call `bindViews(view)` and `unbindViews()` if you think it's appropriate.
+Call `ButterKt.bind(this, view)` and `ButterKt.unbind(this)` if you think it's appropriate.
 
 # License
 

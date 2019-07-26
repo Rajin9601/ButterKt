@@ -2,20 +2,20 @@
 
 This app is showing example of dangerous usage of lazy binding.
 
-When same id is used for recycler view's item and view in activity, lazy binding can cause bug of accessing view in recycler view's item instead of view in activity.
+When same id is used for RecyclerView's item and view in Activity, lazy binding can cause bug of accessing view in RecyclerView's item instead of view in Activity.
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     setContentView(R.layout.activity_main)
-    // activity_main has recycler_view and text_view
+    // activity_main has recyclerView and textView
 
     recycler_view.adpater = MyAdapter()
 
     recyclerView.postDelayed({
       textView.setText(R.string.testing_str)
-      // BUG HERE : this text_view accesses to item view in recycler view.
+      // BUG HERE : this textView accesses to item view in recyclerView.
     }, 1000)
   }
 }
@@ -25,7 +25,7 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.ViewHolder>() {
                                   viewType: Int): MyAdapter.ViewHolder {
     val textView = LayoutInflater.from(parent.context)
         .inflate(R.layout.my_text_view, parent, false)
-    // my_text_view has TextView with id of text_view
+    // my_text_view has TextView with id of textView
     return ViewHolder(textView)
   }
 }

@@ -2,10 +2,10 @@ package me.rajin.butterkt
 
 import android.app.Activity
 import android.app.Dialog
-import android.app.DialogFragment
-import android.app.Fragment
 import android.util.Log
 import android.view.View
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import java.lang.ref.WeakReference
 import java.util.WeakHashMap
@@ -122,7 +122,7 @@ private val ButterViewHolder.viewFinder: (View, Int) -> View?
     get() = { view, id -> view.findViewById(id) }
 
 private fun viewNotFound(id: Int): Nothing =
-        throw IllegalStateException("View ID $id not found.")
+        throw IllegalStateException("View ID ${id.toString(16)} not found.")
 
 @Suppress("UNCHECKED_CAST")
 private fun <C, V : View> requiredLazy(id: Int, finder: C.(Int) -> View?, container: C) =
@@ -265,22 +265,60 @@ private object BindingCache {
     }
 }
 
-fun View.bindViews() = BindingCache.bind(this)
+object ButterKt {
+    fun bind(view: View) {
+        BindingCache.bind(view)
+    }
 
-fun Activity.bindViews() = BindingCache.bind(this)
+    fun unbind(view: View) {
+        BindingCache.unbind(view)
+    }
 
-fun Dialog.bindViews() = BindingCache.bind(this)
+    fun bind(activity: Activity) {
+        BindingCache.bind(activity)
+    }
 
-fun DialogFragment.bindViews(view: View) = BindingCache.bind(this, view)
+    fun unbind(activity: Activity) {
+        BindingCache.unbind(activity)
+    }
 
-fun DialogFragment.unbindViews() = BindingCache.unbind(this)
+    fun bind(dialog: Dialog) {
+        BindingCache.bind(dialog)
+    }
 
-fun Fragment.bindViews(view: View) = BindingCache.bind(this, view)
+    fun unbind(dialog: Dialog) {
+        BindingCache.unbind(dialog)
+    }
 
-fun Fragment.unbindViews() = BindingCache.unbind(this)
+    fun bind(fragment: DialogFragment, view: View) {
+        BindingCache.bind(fragment, view)
+    }
 
-fun ViewHolder.bindViews() = BindingCache.bind(this)
+    fun unbind(dialog: DialogFragment) {
+        BindingCache.unbind(dialog)
+    }
 
-fun ButterViewHolder.bindViews(view: View) = BindingCache.bind(this, view)
+    fun bind(fragment: Fragment, view: View) {
+        BindingCache.bind(fragment, view)
+    }
 
-fun ButterViewHolder.unbindViews() = BindingCache.unbind(this)
+    fun unbind(fragment: Fragment) {
+        BindingCache.unbind(fragment)
+    }
+
+    fun bind(holder: ViewHolder) {
+        BindingCache.bind(holder)
+    }
+
+    fun unbind(holder: ViewHolder) {
+        BindingCache.unbind(holder)
+    }
+
+    fun bind(holder: ButterViewHolder, view: View) {
+        BindingCache.bind(holder, view)
+    }
+
+    fun unbind(holder: ButterViewHolder) {
+        BindingCache.unbind(holder)
+    }
+}
